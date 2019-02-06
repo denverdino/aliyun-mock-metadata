@@ -2,7 +2,8 @@ FROM golang:1.11-alpine AS builder
 MAINTAINER Li Yi <denverdino@gmail.com>
 RUN apk add --no-cache git
 WORKDIR /go/src/aliyun-mock-metadata
-COPY . .
+COPY *.go ./
+COPY vendor ./vendor
 #RUN go get -d -v ./...
 #RUN go install -v ./...
 RUN go build

@@ -66,5 +66,5 @@ clean:
 
 release: docker
 	docker push denverdino/aliyun-mock-metadata:$(GIT_HASH)
-	docker tag -f denverdino/aliyun-mock-metadata:$(GIT_HASH) denverdino/aliyun-mock-metadata:latest
+	docker tag denverdino/aliyun-mock-metadata:$(GIT_HASH) denverdino/aliyun-mock-metadata:latest
 	docker push denverdino/aliyun-mock-metadata:latest
