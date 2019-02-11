@@ -315,8 +315,8 @@ type Credentials struct {
 	Code            string
 	LastUpdated     string
 	AccessKeyID     string `json:"AccessKeyId"`
-	SecretAccessKey string
-	Token           string
+	AccessKeySecret string
+	SecurityToken   string
 	Expiration      string
 }
 
@@ -359,8 +359,8 @@ func (app *App) roleHandler(w http.ResponseWriter, r *http.Request) {
 		Code:            "Success",
 		Expiration:      resp.Credentials.Expiration,
 		LastUpdated:     time.Now().Format("2006-01-02T15:04:05Z"),
-		SecretAccessKey: resp.Credentials.AccessKeySecret,
-		Token:           resp.Credentials.SecurityToken,
+		AccessKeySecret: resp.Credentials.AccessKeySecret,
+		SecurityToken:   resp.Credentials.SecurityToken,
 	}
 	if err := json.NewEncoder(w).Encode(credentials); err != nil {
 		log.Errorf("Error sending json %+v", err)
